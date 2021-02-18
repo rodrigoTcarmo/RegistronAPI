@@ -1,0 +1,38 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block content %}
+<body>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+  <h2>Users list</h2><br>
+  <div class="container-fluid table-bordered mt-5">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Full name</th>
+          <th scope="col">Actions</th>
+        </tr>
+      </thead>
+      {% for u in users %} <!-- Using "for" list the users given by the view "users"-->
+        {% if user_depart == u.profile.department or group == 'Administrator'%} <!-- Here we separate who can see all users and who can only see users from the same department-->
+          <tbody>
+            <tr>
+              <th scope="row">{{ u.id }}</th>
+              <td>{{ u.profile.full_name }}</td>
+              <td>
+                  <button type="button" class="btn btn-info" onclick="location.href = '/user_detail/{{ u.id }}'">USER INFO</button>
+                  <button type="button" class="btn btn-primary" onclick="location.href = '/user_update/{{ u.id }}'">UPDATE USER!</button>
+                  {% if loged_user == u.username or group == 'Administrator'%} <!-- Here we separate who can delete the users-->
+                    <button type='button' class="btn btn-danger" onclick="location.href = '/user_delete/{{ u.id }}'">DELETE USER!</button>
+                  {% else %}
+                  {% endif %}
+              </td>
+            </tr>
+          </tbody>
+        {% endif %}
+      {% endfor %}
+    </table>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
+</body>
+{% endblock %}

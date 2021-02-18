@@ -1,0 +1,46 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block content %}
+<body>
+    <div class="container-fluid">
+        <div class="row no-gutter">
+            <div class="d-md-flex col-md-4 col-lg-3"></div>
+                <div class="col-md-6 col-lg-6">
+                    <div class="login d-flex align-items-center py-1">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-9 col-lg-8 mx-auto">
+                                    <h1>Update your info</h1><br>
+                                    <form method="POST">
+                                        {% csrf_token %}
+                                        <label>Full name:</label>
+                                        <input class="form-control" type="text" name="full_name">
+                                        <label>Current full name: {{ fl_name }}</label><br><br>
+
+
+                                        <label>E-mail:</label>
+                                        <input class="form-control" type="email" name="email">
+                                        <label>Current e-mail: {{ user.email }}</label><br><br>
+
+
+                                        <label>Department:</label>
+                                        <select class="form-control" name="department">
+                                            {% for d in all_departs %}
+                                                <option value="{{ d }}" >{{ d }}</option>
+                                            {% endfor %}
+                                        </select>
+                                        <label>Current department: {{ depart }}</label><br><br>
+
+
+                                        <button type="submit" class="btn btn-primary" >SAVE!</button>
+                                    </form>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+      </div>
+</body>
+{% endblock %}

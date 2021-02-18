@@ -1,0 +1,19 @@
+Metadata-Version: 1.1
+Name: django-group-access
+Version: 1.1.17
+Summary: Base Django model to add access control, via groups, to objects.
+Home-page: https://launchpad.net/django-group-access
+Author: Mike Heald
+Author-email: mike.heald@canonical.com
+License: LGPLv3
+Description: UNKNOWN
+Keywords: django,ownership,models
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Environment :: Web Environment
+Classifier: Framework :: Django
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: GNU Library or Lesser General Public License (LGPL)
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: Python :: 2.7

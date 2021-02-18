@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<body>
+  <div class="container-fluid">
+    <div class="row no-gutter">
+      <div class="d-md-flex col-md-4 col-lg-3"></div>
+      <div class="col-md-6 col-lg-6">
+        <div class="login d-flex align-items-center py-1">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-9 col-lg-8 mx-auto">
+                <h3 class="login-heading mb-4">Welcome to registron!</h3>
+                <h5 class="login-heading mb-4">Please, enter your username and password.</h5>
+                <form method="POST">
+                  {% csrf_token %}
+                  {% if messages %}
+
+                    <script>
+                      alert("The username or password is incorrect");
+                    </script>
+                  {% else %}
+                  {% endif %}
+                  <div>
+                    <label>Username</label>
+                    <input type="text" class="form-control" placeholder="Username" name="username" required autofocus><br>
+                  </div>
+
+                  <div>
+                    <label>Password</label>
+                    <input type="password" class="form-control" placeholder="Password" name="password" required>
+                  </div><br>
+
+                  <button class="btn btn-lg btn-primary col-lg-12 text-uppercase font-weight-bold mb-2" type="submit">Sign in</button><br><br>
+
+                  <h5 class="login-heading mb-2">Don't have an account? No problem!</h5>
+                  <h6 class="login-heading mb-1">Here you can register: </h6>
+                  <a href="{% url 'register'%}">
+                      <button class="btn btn-lg btn-primary col-lg-12 text-uppercase font-weight-bold mb-2" type="button">Sign up</button><br><br>
+                  </a>
+                  <div class="text-center">
+
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+{% endblock %}

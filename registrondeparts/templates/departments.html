@@ -1,0 +1,31 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block content %}
+<body>
+    <h2>DEPARTMENT LIST
+    <div class="container-fluid table-bordered mt-5">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">Departments</th>
+              <th scope="col">Actions</th>
+            </tr>
+          </thead>
+          {% for d in all_departs %}
+              <tbody>
+                <tr>
+                  <th>{{ d.id }}</th>
+                  <td>{{ d }}</td>
+                  <td>
+                      <button type='button' class="btn btn-danger" onclick="location.href = '/department_delete/{{ d.id }}'">DELETE DEPARTMENT!</button>
+
+                  </td>
+                </tr>
+              </tbody>
+          {% endfor %}
+        </table>
+        </div>
+    </h2>
+</body>
+{% endblock %}

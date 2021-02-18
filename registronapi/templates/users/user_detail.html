@@ -1,0 +1,32 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block content %}
+<body>
+    <h3>
+        User detail
+        <table class="table table-bordered mt-5">
+          <thead>
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">Full name</th>
+              <th scope="col">Username</th>
+              <th scope="col">Email</th>
+              <th scope="col">Department</th>
+            </tr>
+            <tbody>
+                <tr>
+                  <th >{{ user.id }}</th>
+                  <td>{{ fl_name }}</td>
+                  <td>{{ user.username }}</td>
+                  <td>{{ user.email }}</td>
+                  <td>{{ depart }}</td>
+                </tr>
+              </tbody>
+
+          </thead>
+
+        </table>
+    </h3>
+</body>
+{% endblock %}
+

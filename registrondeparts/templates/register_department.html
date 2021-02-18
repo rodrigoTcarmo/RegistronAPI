@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<body>
+    <h1>Welcome to registron!</h1>
+
+    <form method="POST">
+        {% csrf_token %}
+        <label>Username:</label>
+        <input type="text" name="username"><br><br>
+
+        <label>Full name:</label>
+        <input type="text" name="full_name"><br><br>
+
+        <label>E-mail:</label>
+        <input type="email" name="email"><br><br>
+
+        <label>Department:</label>
+        <input type="text" name="department"><br><br>
+
+        <label>Password:</label>
+        <input type="password" name="password1"><br><br>
+
+        <label>Confimr your password:</label>
+        <input type="password" name="password2"><br><br>
+
+        <button type="submit" >SAVE!</button>
+    </form>
+</body>
+{% endblock %}

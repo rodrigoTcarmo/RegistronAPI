@@ -1,0 +1,33 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block content %}
+
+<body>
+
+    <form method="POST">
+        {% csrf_token %}
+    </form>
+<div class="container-fluid">
+  <div class="row no-gutter">
+    <div class="d-md-flex col-md-4 col-lg-3"></div>
+    <div class="col-md-6 col-lg-6">
+      <div class="login d-flex align-items-center py-1">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-9 col-lg-8 mx-auto">
+              <h3 class="login-heading mb-4">Create new department</h3>
+              <h5 class="login-heading mb-4">Please, enter a name for the new department.</h5>
+              <form method="POST">
+                {% csrf_token %}
+                <label>Department name:</label>
+                <input type="text" class="form-control" name="depart_name"><br><br>
+                <button class="btn btn-lg btn-primary col-lg-12 text-uppercase font-weight-bold mb-2" type="submit">CREATE!</button><br><br>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

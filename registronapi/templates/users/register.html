@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<body>
+    <div class="container-fluid">
+      <div class="row no-gutter">
+        <div class="d-md-flex col-md-4 col-lg-3"></div>
+          <div class="col-md-6 col-lg-6">
+            <div class="login d-flex align-items-center py-1">
+              <div class="container">
+                <div class="row">
+                  <div class="col-md-9 col-lg-8 mx-auto">
+                    <h1>Welcome to registron!</h1>
+                    <form method="POST">
+                        {% csrf_token %}
+                        {% csrf_token %}
+                        {% if messages %}
+                        <script>
+                            alert("The password and confirmation password do not match.")
+                        </script>
+                        {% else %}
+                        {% endif %}
+                        <label>Username:</label>
+                        <input class="form-control" type="text" name="username" required><br>
+
+                        <label>Full name:</label>
+                        <input class="form-control" type="text" name="full_name" required><br>
+
+                        <label>E-mail:</label>
+                        <input class="form-control" type="email" name="email" required><br>
+
+                        <label>Department:</label>
+
+                        <select class="form-control" name="department" required>
+                            {% for d in all_departs %}
+                            <option value="{{d}}" >{{ d }}</option>
+                            {% endfor %}
+                        </select><br><br>
+
+                        <div id="message">
+                          <h4>Password must contain the following:</h4>
+                          <p id="letter" class="invalid">A <b>lowercase</b> letter</p>
+                          <p id="capital" class="invalid">A <b>capital (uppercase)</b> letter</p>
+                          <p id="number" class="invalid">A <b>number</b></p>
+                          <p id="length" class="invalid">Minimum <b>8 characters</b></p>
+                        </div>
+
+                        <label>Password:</label>
+                        <input class="form-control" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" type="password" name="password1" required><br>
+
+                        <label>Confirm your password:</label>
+                        <input class="form-control" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" type="password" name="password2" required><br><br>
+
+
+
+                        <button class="btn btn-lg btn-primary col-lg-12 text-uppercase font-weight-bold mb-2" type="submit">SAVE!</button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+
+</body>
+{% endblock %}
